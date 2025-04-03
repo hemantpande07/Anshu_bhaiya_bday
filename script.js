@@ -1,12 +1,7 @@
 let highestZ = 1;
 
 const audio = new Audio('audio/suprise.mp3');  // Add path to your audio file
-audio.loop = true;  // Keep the sound playing in a loop
-
-// Play the audio when the page loads
-audio.play().catch(error => {
-  console.error("Audio play failed: ", error);
-});
+audio.loop = true;  // To keep the sound playing while dragging
 
 class Paper {
   holdingPaper = false;
@@ -74,11 +69,22 @@ class Paper {
       if (e.button === 2) {
         this.rotating = true;
       }
+
+      // Start the audio when dragging begins
+      if (audio.paused) {
+        audio.play();
+      }
     });
 
     window.addEventListener('mouseup', () => {
       this.holdingPaper = false;
       this.rotating = false;
+
+      // Stop the audio when the drag ends
+      if (!audio.paused) {
+        audio.pause();
+        audio.currentTime = 0;  // Reset the audio to start from the beginning next time
+      }
     });
   }
 }
