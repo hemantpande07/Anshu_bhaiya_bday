@@ -1,12 +1,7 @@
 let highestZ = 1;
 
 const audio = new Audio('audio/suprise.mp3');  // Add path to your audio file
-audio.loop = true;  // Keep the sound playing in a loop
-
-// Play the audio when the page loads
-audio.play().catch(error => {
-  console.error("Audio play failed: ", error);
-});
+audio.loop = true;  // To keep the sound playing while dragging
 
 class Paper {
   holdingPaper = false;
@@ -72,11 +67,22 @@ class Paper {
       this.touchStartY = e.touches[0].clientY;
       this.prevTouchX = this.touchStartX;
       this.prevTouchY = this.touchStartY;
+
+      // Start the audio when dragging begins
+      if (audio.paused) {
+        audio.play();
+      }
     });
 
     paper.addEventListener('touchend', () => {
       this.holdingPaper = false;
       this.rotating = false;
+
+      // Stop the audio when the drag ends
+      if (!audio.paused) {
+        audio.pause();
+        audio.currentTime = 0;  // Reset the audio to start from the beginning next time
+      }
     });
 
     // For two-finger rotation on touch screens
