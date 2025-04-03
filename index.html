@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HBD Anshu Bhaiya 😎</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Short+Stack&amp;family=Homemade+Apple&amp;display=swap">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="paper heart"></div>
+  
+<div class="paper image">
+  <p>Once again, have a</p>
+  <p>fabulous birthday 🎂</p>
+  <img src="images/1.jpg.jpg" />
+</div>
+
+<div class="paper image">
+  <p>May your birthday be</p>
+  <p>as awesome as you're 😍</p>
+  <img src="images/2.jpg" />
+</div>
+
+<div class="paper image">
+  <p class="p1">I hope all your</p>
+  <p class="p1">dreams come true 🌟</p>
+  <img src="images/Wishes.jpeg" />
+</div>
+
+<div class="paper red">
+  <p class="p1">Many more happy</p>
+  <p class="p1">returns of the day 😍</p>
+</div>
+
+<div class="paper">
+  <p class="p1">Happy Birthday</p>
+  <p class="p1">Anshu Bhaiya 🥳<span style="color: red !important;">❤️</span></p>
+</div>
+
+<div class="paper">
+  <p class="p1">Drag the papers to move!</p>
+</div>
+
+<script>
+  function loadScript(url) {
+    var script = document.createElement('script');
+    script.src = url;
+    document.head.appendChild(script);
+  }
+
+  var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  
+  if (isMobile) {
+    loadScript('./mobile.js');
+  } else {
+    loadScript('./script.js');
+  }
+</script>
+</body>
+</html>
