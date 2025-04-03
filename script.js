@@ -1,6 +1,6 @@
 let highestZ = 1;
 
-const audio = new Audio('audio/suprise.mp3');  // Add path to your audio file
+const audio = new Audio('./audio/suprise.mp3');  // Add path to your audio file
 audio.loop = true;  // To keep the sound playing while dragging
 
 class Paper {
